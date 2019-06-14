@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { Typography ,Button ,AppBar,Toolbar} from '@material-ui/core'
 import firebase from '../firebase'
-import { Link } from 'react-router-dom'
-import history from '../history';
+import { Link, withRouter } from 'react-router-dom'
+//import history from '../history';
 class Navbar extends Component{
 
     componentDidMount=()=>{
         if(!firebase.getCurrentUsername()) {
             // not logged in
             alert('Please login first')
-            history.replace('/login')
+            this.props.history.replace('/loginY')
 
             return null
         }
@@ -17,10 +17,10 @@ class Navbar extends Component{
 
       logout= async () => {
         await firebase.logout()
-		history.push('/')
+        this.props.history.push('/')
 	}
     render() {
-        console.log(history);
+        console.log( this.props.history);
         return (
             <div >
             <AppBar position="static">
@@ -69,4 +69,4 @@ const title = {
     flexGrow: 1,
   };
 
-export default Navbar;
+export default withRouter(Navbar);

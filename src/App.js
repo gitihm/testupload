@@ -4,6 +4,7 @@ import firebase from './components/firebase'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { CssBaseline, CircularProgress } from '@material-ui/core'
 import { BrowserRouter as Router, Switch, Route ,BrowerHistory} from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
